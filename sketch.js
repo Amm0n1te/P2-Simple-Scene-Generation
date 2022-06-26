@@ -5,6 +5,9 @@ let grassX = [];
 let grassY = [];
 let grass2X = [];
 let grass2Y = [];
+let sunX = 500;
+let sunRadius = 30;
+let sunHeight = 70;
 
 function setup() {
     console.log("setup");
@@ -16,6 +19,7 @@ function setup() {
     }
     grassY.sort();
     angleMode(DEGREES);
+
 }
 
 
@@ -25,6 +29,7 @@ let windpress = 20;
 let direction = 1;
 
 function draw() {
+    stroke(0);
     fill(212, 172, 103); 
     background(0, 105, 183);
     fill(212, 172, 103);
@@ -44,6 +49,13 @@ function draw() {
         //circle(grassX[i], grassY[i], DEFAULTSIZE*((grassY[i]-height/2)/(height/2)));
         line(grassX[i], grassY[i], grassX[i] + direction * (noisewind*windpress)*((grassY[i]-height/2)/(height/2)), grassY[i]-DEFAULTSIZE*( (grassY[i]-height/2)/(height/2) ));
     }
+    noStroke();
+    fill(255, 224, 130);
+    circle(sunX, sunHeight, sunRadius+60);
+    fill(235, 189, 52);
+    circle(sunX, sunHeight, sunRadius);
+    sunX -= 0.1;
+    if (sunX < -100) sunX = 700
 }
 
 function keyPressed() {
