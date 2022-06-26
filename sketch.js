@@ -15,10 +15,14 @@ function setup() {
         grassX[i] = random()*width;
     }
     grassY.sort();
+    angleMode(DEGREES);
 }
 
 
-
+let wind = 0;
+let windspeed = 0.1;
+let windpress = 20;
+let direction = 1;
 
 function draw() {
     fill(212, 172, 103); 
@@ -26,16 +30,31 @@ function draw() {
     fill(212, 172, 103);
     let ground = rect(-20, height/2, width+40, height);  
     fill(211, 52, 235);
+    wind += windspeed;
+    let noisewind = noise(wind);
+    if (keyIsDown(32)) {
+        console.log("spacebar detected");
+        windspeed = 0.5;
+        windpress = 100;
+    } else {
+        windspeed = 0.1;
+        windpress = 20;
+    }
     for (let i=0; i<GRASSAMOUNT; i++) {
         //circle(grassX[i], grassY[i], DEFAULTSIZE*((grassY[i]-height/2)/(height/2)));
-        line(grassX[i], grassY[i], grassX[i], grassY[i]+DEFAULTSIZE*( (grassY[i]-height/2)/(height/2) ));
+        line(grassX[i], grassY[i], grassX[i] + direction * (noisewind*windpress)*((grassY[i]-height/2)/(height/2)), grassY[i]-DEFAULTSIZE*( (grassY[i]-height/2)/(height/2) ));
+    }
+}
+
+function keyPressed() {
+    if (keyCode == LEFT_ARROW) {
+        direction = -1;
+    }
+    else if (keyCode == RIGHT_ARROW) {
+        direction = 1;
     }
 }
 
 
-function test() {
-    console.log(string)
-};
 
 clicker.onclick = setup;
-
