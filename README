@@ -1,0 +1,12 @@
+TITLE: Windy Prairie Generative Design Study
+
+DESCRIPTION
+This project creates a basic scene with some grass in a field, while a sun moves sideways slowly.  The grass positions are chosen randomly, but skewed based on the natural log function so that there is less grass in the front, graduating to more and more grass towards the horizon in a logarithmic pattern.  This helps reinforce the sense of perspective.  The grass also moves to simulate wind, using Perlin noise.  Pressing left and right controls the wind direction, while holding spacebar causes the winds to be high-speed.  This scene is based on the "straight grass prairie.jpg" image in this repository, but also combines the sun from the "prairie.jpg" image, also in this repository.
+
+ARTIST STATEMENT
+My objective was to create a simple dynamically generated golden grass field, using randomness to distribute the grass, and noise to simulate wind.  I think I achieved the technical objectives of this project, but the prairies have too much grass to render in a computer-based simulation in p5.js.  (This project has 2000 grass.  Too many grass objects causes it to start to look like hair.)  
+
+THREE SHAPES
+- circles for the sun
+- lines for the grass
+- square for the ground

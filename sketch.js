@@ -1,4 +1,4 @@
-const GRASSAMOUNT = 1000;
+const GRASSAMOUNT = 2000;
 const SECONDGRASS = GRASSAMOUNT/2;
 const DEFAULTSIZE = 50;  
 let grassX = [];
@@ -29,12 +29,12 @@ let windpress = 20;
 let direction = 1;
 
 function draw() {
-    stroke(0);
+    noStroke(0);
     fill(212, 172, 103); 
     background(0, 105, 183);
-    fill(212, 172, 103);
+    fill(206, 165, 109);
     let ground = rect(-20, height/2, width+40, height);  
-    fill(211, 52, 235);
+    stroke(155, 108, 54);
     wind += windspeed;
     let noisewind = noise(wind);
     if (keyIsDown(32)) {
